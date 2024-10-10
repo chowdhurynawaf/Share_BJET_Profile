@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My PDF Document</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden; /* Prevents scrolling */
+        }
+        object {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        /* Optional: Add a background color for better aesthetics */
+        body {
+            background-color: #f0f0f0; 
+        }
+    </style>
+</head>
+<body>
+    <object data="document.pdf" type="application/pdf">
+        <p>Your browser does not support PDFs. <a href="document.pdf">Download the PDF</a>.</p>
+    </object>
+    <script>
+        // Detect if the user is using Safari and if the PDF fails to load
+        const objectElem = document.querySelector('object');
+        objectElem.onerror = function() {
+            // Optional: Display an alert or message if the PDF fails to load
+            alert('Unable to load the PDF. Please try again or download it directly.');
+        };
+    </script>
+</body>
+</html>
+
